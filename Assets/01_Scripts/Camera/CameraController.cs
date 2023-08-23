@@ -18,7 +18,10 @@ public class CameraController : MonoBehaviour
         RotateCamera();
         if (Input.GetMouseButtonDown(0))
         {
-
+            if (LookGameObject(out RaycastHit hit))
+            {
+                Destroy(hit.transform.gameObject);
+            }
         }
 
     }
