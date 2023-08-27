@@ -26,8 +26,12 @@ public class GameManager : MonoBehaviour
     public int time_3;
     private data datavar = new data();
 
+
+    public int now_game;
+
     public Sprite game_tab_img;
 
+    public GameObject game_pop;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     public void click_sound()
     {
-GameObject.Find("GameObject").GetComponent<AudioSource>().Play();
+GameObject.Find("GameManager").GetComponent<AudioSource>().Play();
     }
 
 // Update is called once per frame
@@ -59,11 +63,20 @@ if(File.Exists(path)){
 
       
     
-           time_1 = datavar.time_1; 
-           
-           time_2 = datavar.time_2; 
-           
-           time_3 = datavar.time_3; 
+            if (now_game == 1)
+           {
+               time_1 = datavar.time_1;
+           }
+
+           if (now_game ==2)
+           {
+               time_1 = datavar.time_2;
+           }
+     
+           if (now_game == 3)
+           {
+               time_1 = datavar.time_3;
+           }
                
         }
         else
@@ -83,11 +96,20 @@ if(File.Exists(path)){
 
  public void Save()
  {
+     if (now_game == 1)
+     {
+         datavar.time_1 = time_1;
+     }
 
-
-     datavar.time_1 = time_1;
-     datavar.time_2 = time_2;
-     datavar.time_3 = time_3;
+     if (now_game ==2)
+     {
+         datavar.time_1 = time_2;
+     }
+     
+     if (now_game == 3)
+     {
+         datavar.time_1 = time_3;
+     }
           
 
                      
