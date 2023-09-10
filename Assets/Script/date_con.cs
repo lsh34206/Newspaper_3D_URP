@@ -76,10 +76,9 @@ public class date_con : MonoBehaviour
         is_play = false;
     }
     
-    public void delete_btn_click()
+    
+    public void menu_visit()
     {
-        delete_bool = !delete_bool;
-
         if (delete_bool)
         {
             GameObject.Find("delete").GetComponent<Image>().color = new Color(255, 0, 0, 255);
@@ -87,6 +86,13 @@ public class date_con : MonoBehaviour
         {
             GameObject.Find("delete").GetComponent<Image>().color = new Color(141, 0, 245, 255);
         }
+    }
+
+    public void delete_btn_click()
+    {
+        delete_bool = !delete_bool;
+
+        menu_visit();
     }
     public void game_1_start()
     {
