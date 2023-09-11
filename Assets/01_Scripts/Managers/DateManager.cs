@@ -1,9 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class date_con : MonoBehaviour
+public class DateManager : MonoBehaviour
 {
     public Text time_text_1;
     private bool tab_pop_bool;
