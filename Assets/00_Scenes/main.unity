@@ -1176,7 +1176,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 668122053}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: date_con, Assembly-CSharp
         m_MethodName: delete_btn_click
         m_Mode: 1
@@ -1540,61 +1540,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639457063}
   m_CullTransparentMesh: 1
---- !u!1 &668122052
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 668122054}
-  - component: {fileID: 668122053}
-  m_Layer: 0
-  m_Name: date_con
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &668122053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 668122052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3476427e04f7ebd4291331c4c5c5d627, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time_text_1: {fileID: 424676624}
-  time: 0
-  game_tab_pop: {fileID: 564720745}
-  game_1_btn: {fileID: 757351792}
-  game_2_btn: {fileID: 1702312610}
-  game_3_btn: {fileID: 1035083581}
-  load_list_pop: {fileID: 0}
-  delete_bool: 0
-  delete_game_num: 0
-  alert: {fileID: 751435344}
-  alert_text: {fileID: 1049454089}
---- !u!4 &668122054
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 668122052}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 647.8, y: 392.71066, z: -3.4282746}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &679184413
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,7 +1976,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 668122053}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: date_con, Assembly-CSharp
         m_MethodName: game_1_start
         m_Mode: 1
@@ -2504,7 +2449,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 668122053}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: date_con, Assembly-CSharp
         m_MethodName: list_load
         m_Mode: 1
@@ -2964,7 +2909,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 668122053}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: date_con, Assembly-CSharp
         m_MethodName: game_3_start
         m_Mode: 1
@@ -3127,7 +3072,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1040620134
@@ -3718,7 +3663,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: -157}
+  m_AnchoredPosition: {x: 0, y: -157}
   m_SizeDelta: {x: 363.3562, y: 100.1848}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1375849034
@@ -3992,7 +3937,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 668122053}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: date_con, Assembly-CSharp
         m_MethodName: delete_func
         m_Mode: 1
@@ -4779,7 +4724,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 668122053}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: date_con, Assembly-CSharp
         m_MethodName: game_2_start
         m_Mode: 1
@@ -5561,7 +5506,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 668122053}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: date_con, Assembly-CSharp
         m_MethodName: new_game
         m_Mode: 1
@@ -5615,9 +5560,8 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 668122054}
+  - {fileID: 1163792483}
   - {fileID: 1128274304}
-  - {fileID: 1532840102}
   - {fileID: 1851856846}
   - {fileID: 741943956}
-  - {fileID: 1163792483}
+  - {fileID: 1532840102}
