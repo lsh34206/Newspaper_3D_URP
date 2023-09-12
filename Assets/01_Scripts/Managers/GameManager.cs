@@ -57,7 +57,9 @@ public class GameManager : MonoBehaviour
            {
                 time_1 = datavar.time_3;
            }
-               
+           time_1 = datavar.time_1;
+           time_2 = datavar.time_2; 
+            time_3 = datavar.time_3;
         }
         else
         {

@@ -218,7 +218,7 @@ public class DateManager : MonoBehaviour
     {
         if (is_play)
         {
-            if (Input.GetKeyDown(KeyCode.Tab))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 tab_pop_bool = !tab_pop_bool;
                 if (tab_pop_bool)
