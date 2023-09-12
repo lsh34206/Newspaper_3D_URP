@@ -19,7 +19,9 @@ public class DateManager : MonoBehaviour
     
     public GameObject load_list_pop;
 
-    public bool delete_bool=false;
+    public bool choise_game_1=false;
+    public bool choise_game_2=false;
+    public bool choise_game_3=false;
     public int delete_game_num;
     public GameObject alert;
     public Text alert_text;
@@ -64,7 +66,7 @@ public class DateManager : MonoBehaviour
     void Start()
     {
         tab_pop_bool = false;
-        delete_bool=false;
+
        
         game_mng = GameObject.Find("GameManager").GetComponent<GameManager>();
         StartCoroutine("time_coru", 1f/6f);
@@ -74,76 +76,87 @@ public class DateManager : MonoBehaviour
     {
         is_play = false;
     }
-    
-    
-    public void menu_visit()
-    {
-        if (delete_bool)
-        {
-            GameObject.Find("delete").GetComponent<Image>().color = new Color(255, 0, 0, 255);
-        }else
-        {
-            GameObject.Find("delete").GetComponent<Image>().color = new Color(141, 0, 245, 255);
-        }
-    }
 
-    public void delete_btn_click()
+    public void game_1_choise()
     {
-        delete_bool = !delete_bool;
-
-        menu_visit();
-    }
-    public void game_1_start()
-    {
-        if (delete_bool==true&&    game_mng.time_1 >= -1)
+        choise_game_1 = !choise_game_1;
+        if (choise_game_1)
         {
-            delete_game_num = 1;
-            alert_text.text = "정말 삭제하시겠습니까?";
-            alert.SetActive(true);
+            game_1_btn.GetComponent<Image>().color = new Color(0, 0, 0, 255);
         }
         else
         {
-              game_mng.now_game = 1;
-                    is_play = true;
-                    game_mng.game_pop.SetActive(true);
-                    time_text_1.text = game_mng.time_1.ToString();
+              game_1_btn.GetComponent<Image>().color = new Color(255, 0, 0, 255);
         }
       
     }
     
-    public void game_2_start()
+    public void game_2_choise()
     {
-        if (delete_bool==true&&    game_mng.time_2 >= -1)
+        choise_game_2 = !choise_game_2;
+        if (choise_game_2)
         {
-            delete_game_num = 2;
-            alert_text.text = "정말 삭제하시겠습니까?";
-            alert.SetActive(true);
+            game_2_btn.GetComponent<Image>().color = new Color(0, 0, 0, 255);
         }
         else
         {
-            game_mng.now_game = 2;
-            is_play = true;
-            game_mng.game_pop.SetActive(true);
-            time_text_1.text = game_mng.time_2.ToString();
+            game_2_btn.GetComponent<Image>().color = new Color(255, 0, 0, 255);
         }
+      
+    }
+    
+    public void game_3_choise()
+    {
+        choise_game_3 = !choise_game_3;
+        if (choise_game_3)
+        {
+            game_3_btn.GetComponent<Image>().color = new Color(0, 0, 0, 255);
+        }
+        else
+        {
+            game_3_btn.GetComponent<Image>().color = new Color(255, 0, 0, 255);
+        }
+      
     }
 
-    public void game_3_start()
+
+    public void delete_btn_click()
     {
-        if (delete_bool==true&&    game_mng.time_3 >= -1)
+        if (choise_game_1||choise_game_2||choise_game_3)
         {
-            delete_game_num = 3;
             alert_text.text = "정말 삭제하시겠습니까?";
             alert.SetActive(true);
         }
-        else
-        {
-        game_mng.now_game = 3;
-        is_play = true;
-        game_mng.game_pop.SetActive(true);
-        time_text_1.text = game_mng.time_3.ToString();
     }
-}
+    
+    
+    
+    public void game_start()
+    {
+
+  is_play = true;
+                                game_mng.game_pop.SetActive(true);
+        if (choise_game_1)
+        {
+           
+                                time_text_1.text = game_mng.time_1.ToString();
+        }
+        else if(choise_game_2)
+        {
+            time_text_1.text = game_mng.time_1.ToString();
+        }else if(choise_game_3)
+        {
+            time_text_1.text = game_mng.time_3.ToString();
+        }
+                   
+        
+      
+    }
+    
+   
+
+   
+
 
     public void delete_func()
     {
