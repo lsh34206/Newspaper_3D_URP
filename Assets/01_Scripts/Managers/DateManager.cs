@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +26,8 @@ public class DateManager : MonoBehaviour
     public int delete_game_num;
     public GameObject alert;
     public Text alert_text;
+
+    public string comfirm_mode;
     IEnumerator time_coru()
     {
         if (game_mng.now_game == 1)
@@ -69,6 +72,8 @@ public class DateManager : MonoBehaviour
 
        
         game_mng = GameObject.Find("GameManager").GetComponent<GameManager>();
+        game_mng.Load();
+        list_load();
         StartCoroutine("time_coru", 1f/6f);
     }
 
@@ -124,33 +129,72 @@ public class DateManager : MonoBehaviour
     {
         if (choise_game_1||choise_game_2||choise_game_3)
         {
+       
             alert_text.text = "정말 삭제하시겠습니까?";
             alert.SetActive(true);
         }
     }
-    
+
+    public void comfirm_con()
+    {
+        if (comfirm_mode == "삭제")
+        {
+            delete_func();
+        }else if (comfirm_mode == "입장")
+        {
+            game_start();
+        }
+    }
     
     
     public void game_start()
     {
+        
+        if (choise_game_1 && choise_game_2 && choise_game_3)
+        {
+            
+        }
+        else
+        {
+              is_play = true;
+                                            game_mng.game_pop.SetActive(true);
+                    if (choise_game_1)
+                    {
+                       
+                                            time_text_1.text = game_mng.time_1.ToString();
+                    }
+                    else if(choise_game_2)
+                    {
+                        time_text_1.text = game_mng.time_2.ToString();
+                    }else if(choise_game_3)
+                    {
+                        time_text_1.text = game_mng.time_3.ToString();
+                    }
+        }
 
-  is_play = true;
-                                game_mng.game_pop.SetActive(true);
-        if (choise_game_1)
-        {
-           
-                                time_text_1.text = game_mng.time_1.ToString();
-        }
-        else if(choise_game_2)
-        {
-            time_text_1.text = game_mng.time_1.ToString();
-        }else if(choise_game_3)
-        {
-            time_text_1.text = game_mng.time_3.ToString();
-        }
                    
         
       
+    }
+    
+    
+    public void delete_mode()
+    {
+
+        comfirm_mode = "삭제";
+
+
+
+    }
+    
+     
+    public void visit_mode()
+    {
+
+        comfirm_mode = "입장";
+
+
+
     }
     
    
@@ -160,14 +204,17 @@ public class DateManager : MonoBehaviour
 
     public void delete_func()
     {
-        if (delete_game_num == 1)
+        if (choise_game_1)
         {
             game_mng.time_1 = -1;
         }
-        else if(delete_game_num == 2)
+        
+      if(choise_game_2)
         {
             game_mng.time_2 = -1;
-        }else if(delete_game_num == 3)
+        }
+      
+      if(choise_game_3)
         {
             game_mng.time_3 = -1;
         }
@@ -190,7 +237,9 @@ public class DateManager : MonoBehaviour
             game_3_btn.GetComponent<Button>().interactable = true;
         }else if (game_mng.time_1 != -1 && game_mng.time_2 != -1 && game_mng.time_3 != -1)
         {
-            
+            game_1_btn.GetComponent<Button>().interactable = true;
+            game_2_btn.GetComponent<Button>().interactable = true;
+            game_3_btn.GetComponent<Button>().interactable = true;
         }
         game_mng.Save();
         list_load();
