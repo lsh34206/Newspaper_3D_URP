@@ -1,5 +1,6 @@
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class data
@@ -70,6 +71,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void go_main()
+    {
+        SceneManager.LoadScene(1);
+    }
+    public void go_lobby()
+    {
+        SceneManager.LoadScene(2);
+    }
+    public void go_game()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void Save()
     {
       

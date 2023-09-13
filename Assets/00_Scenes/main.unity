@@ -1498,10 +1498,13 @@ MonoBehaviour:
   game_2_btn: {fileID: 1702312610}
   game_3_btn: {fileID: 1035083581}
   load_list_pop: {fileID: 1400024481}
-  delete_bool: 0
+  choise_game_1: 0
+  choise_game_2: 0
+  choise_game_3: 0
   delete_game_num: 0
   alert: {fileID: 751435344}
   alert_text: {fileID: 1049454089}
+  comfirm_mode: 
 --- !u!4 &668122054
 Transform:
   m_ObjectHideFlags: 0
@@ -3839,21 +3842,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1400024481}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1851856845}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: click_sound
+        m_MethodName: go_lobby
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3861,7 +3852,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1375849035
 MonoBehaviour:
