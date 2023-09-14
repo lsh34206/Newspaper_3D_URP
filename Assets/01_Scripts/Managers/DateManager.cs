@@ -1,5 +1,7 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DateManager : MonoBehaviour
@@ -19,10 +21,14 @@ public class DateManager : MonoBehaviour
     
     public GameObject load_list_pop;
 
-    public bool delete_bool=false;
+    public bool choise_game_1=false;
+    public bool choise_game_2=false;
+    public bool choise_game_3=false;
     public int delete_game_num;
     public GameObject alert;
     public Text alert_text;
+
+    public string comfirm_mode;
     IEnumerator time_coru()
     {
         if (game_mng.now_game == 1)
@@ -64,9 +70,11 @@ public class DateManager : MonoBehaviour
     void Start()
     {
         tab_pop_bool = false;
-        delete_bool=false;
+
        
         game_mng = GameObject.Find("GameManager").GetComponent<GameManager>();
+        game_mng.Load();
+        list_load();
         StartCoroutine("time_coru", 1f/6f);
     }
 
@@ -74,87 +82,140 @@ public class DateManager : MonoBehaviour
     {
         is_play = false;
     }
-    
-    
-    public void menu_visit()
-    {
-        if (delete_bool)
-        {
-            GameObject.Find("delete").GetComponent<Image>().color = new Color(255, 0, 0, 255);
-        }else
-        {
-            GameObject.Find("delete").GetComponent<Image>().color = new Color(141, 0, 245, 255);
-        }
-    }
 
-    public void delete_btn_click()
+    public void game_1_choise()
     {
-        delete_bool = !delete_bool;
-
-        menu_visit();
-    }
-    public void game_1_start()
-    {
-        if (delete_bool==true&&    game_mng.time_1 >= -1)
+        choise_game_1 = !choise_game_1;
+        if (choise_game_1)
         {
-            delete_game_num = 1;
-            alert_text.text = "정말 삭제하시겠습니까?";
-            alert.SetActive(true);
+            game_1_btn.GetComponent<Image>().color = new Color(0, 0, 0, 255);
         }
         else
         {
-              game_mng.now_game = 1;
-                    is_play = true;
-                    game_mng.game_pop.SetActive(true);
-                    time_text_1.text = game_mng.time_1.ToString();
+              game_1_btn.GetComponent<Image>().color = new Color(255, 0, 0, 255);
         }
       
     }
     
-    public void game_2_start()
+    public void game_2_choise()
     {
-        if (delete_bool==true&&    game_mng.time_2 >= -1)
+        choise_game_2 = !choise_game_2;
+        if (choise_game_2)
         {
-            delete_game_num = 2;
-            alert_text.text = "정말 삭제하시겠습니까?";
-            alert.SetActive(true);
+            game_2_btn.GetComponent<Image>().color = new Color(0, 0, 0, 255);
         }
         else
         {
-            game_mng.now_game = 2;
-            is_play = true;
-            game_mng.game_pop.SetActive(true);
-            time_text_1.text = game_mng.time_2.ToString();
+            game_2_btn.GetComponent<Image>().color = new Color(255, 0, 0, 255);
+        }
+      
+    }
+    
+    public void game_3_choise()
+    {
+        choise_game_3 = !choise_game_3;
+        if (choise_game_3)
+        {
+            game_3_btn.GetComponent<Image>().color = new Color(0, 0, 0, 255);
+        }
+        else
+        {
+            game_3_btn.GetComponent<Image>().color = new Color(255, 0, 0, 255);
+        }
+      
+    }
+
+
+    public void delete_btn_click()
+    {
+        if (choise_game_1||choise_game_2||choise_game_3)
+        {
+       
+            alert_text.text = "정말 삭제하시겠습니까?";
+            alert.SetActive(true);
         }
     }
 
-    public void game_3_start()
+    public void comfirm_con()
     {
-        if (delete_bool==true&&    game_mng.time_3 >= -1)
+        if (comfirm_mode == "삭제")
         {
-            delete_game_num = 3;
-            alert_text.text = "정말 삭제하시겠습니까?";
-            alert.SetActive(true);
+            delete_func();
+        }else if (comfirm_mode == "입장")
+        {
+            game_start();
+        }
+    }
+    
+    
+    public void game_start()
+    {
+        
+        if (choise_game_1 && choise_game_2 && choise_game_3)
+        {
+            
         }
         else
         {
-        game_mng.now_game = 3;
-        is_play = true;
-        game_mng.game_pop.SetActive(true);
-        time_text_1.text = game_mng.time_3.ToString();
+              is_play = true;
+                                            game_mng.game_pop.SetActive(true);
+                    if (choise_game_1)
+                    {
+                       
+                                            time_text_1.text = game_mng.time_1.ToString();
+                    }
+                    else if(choise_game_2)
+                    {
+                        time_text_1.text = game_mng.time_2.ToString();
+                    }else if(choise_game_3)
+                    {
+                        time_text_1.text = game_mng.time_3.ToString();
+                    }
+        }
+
+
+        SceneManager.LoadScene(0);
+
     }
-}
+    
+    
+    public void delete_mode()
+    {
+
+        comfirm_mode = "삭제";
+
+
+
+    }
+    
+     
+    public void visit_mode()
+    {
+
+        comfirm_mode = "입장";
+
+
+
+    }
+    
+   
+
+   
+
 
     public void delete_func()
     {
-        if (delete_game_num == 1)
+        if (choise_game_1)
         {
             game_mng.time_1 = -1;
         }
-        else if(delete_game_num == 2)
+        
+      if(choise_game_2)
         {
             game_mng.time_2 = -1;
-        }else if(delete_game_num == 3)
+        }
+      
+      if(choise_game_3)
         {
             game_mng.time_3 = -1;
         }
@@ -167,20 +228,29 @@ public class DateManager : MonoBehaviour
         {
             game_mng.time_1 = 0;
             game_1_btn.GetComponent<Button>().interactable = true;
+            choise_game_1 = true;
+            game_start();
         }else if (game_mng.time_1 != -1 && game_mng.time_2 == -1 && game_mng.time_3 == -1)
         {
             game_mng.time_2 = 0;
             game_2_btn.GetComponent<Button>().interactable = true;
+            choise_game_2 = true;
+            game_start();
         }else if (game_mng.time_1 != -1 && game_mng.time_2 != -1 && game_mng.time_3 == -1)
         {
             game_mng.time_3 = 0;
             game_3_btn.GetComponent<Button>().interactable = true;
+            choise_game_3 = true;
+            game_start();
         }else if (game_mng.time_1 != -1 && game_mng.time_2 != -1 && game_mng.time_3 != -1)
         {
-            
+            game_1_btn.GetComponent<Button>().interactable = true;
+            game_2_btn.GetComponent<Button>().interactable = true;
+            game_3_btn.GetComponent<Button>().interactable = true;
         }
         game_mng.Save();
         list_load();
+        SceneManager.LoadScene(0);
     }
     public void list_load()
     {
@@ -218,7 +288,7 @@ public class DateManager : MonoBehaviour
     {
         if (is_play)
         {
-            if (Input.GetKeyDown(KeyCode.Tab))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 tab_pop_bool = !tab_pop_bool;
                 if (tab_pop_bool)
