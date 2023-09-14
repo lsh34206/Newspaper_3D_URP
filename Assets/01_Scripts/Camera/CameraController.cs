@@ -1,13 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations;
 
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private Vector2 turn;
     [SerializeField] private float sensitivity = .5f;
 
+    enum CameraPosition
+    {
+        Couch,
+        Table,
+        Bookshelf
+    }
+
+    enum CameraState
+    {
+        Moving,
+        Stay
+    }
+
+    private CameraPosition _position = CameraPosition.Couch;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -15,15 +26,19 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        RotateCamera();
-        if (Input.GetMouseButtonDown(0))
+        switch (_position)
         {
-            if (LookGameObject(out RaycastHit hit))
-            {
-                Destroy(hit.transform.gameObject);
-            }
+            case CameraPosition.Couch:
+                RotateCamera();
+                break;
+            
+            case CameraPosition.Table:
+                Cursor.lockState = CursorLockMode.Confined;
+                break;
+            case CameraPosition.Bookshelf:
+                Cursor.lockState = CursorLockMode.Confined;
+                break;
         }
-
     }
 
     private void RotateCamera()
@@ -31,11 +46,5 @@ public class CameraController : MonoBehaviour
         turn.x += Input.GetAxis("Mouse X") * sensitivity;
         turn.y += Input.GetAxis("Mouse Y") * sensitivity;
         transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
-    }
-
-    private bool LookGameObject(out RaycastHit hit)
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        return Physics.Raycast(ray, out hit);
     }
 }
