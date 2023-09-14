@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DateManager : MonoBehaviour
@@ -172,9 +173,9 @@ public class DateManager : MonoBehaviour
                     }
         }
 
-                   
-        
-      
+
+        SceneManager.LoadScene(0);
+
     }
     
     
@@ -227,14 +228,20 @@ public class DateManager : MonoBehaviour
         {
             game_mng.time_1 = 0;
             game_1_btn.GetComponent<Button>().interactable = true;
+            choise_game_1 = true;
+            game_start();
         }else if (game_mng.time_1 != -1 && game_mng.time_2 == -1 && game_mng.time_3 == -1)
         {
             game_mng.time_2 = 0;
             game_2_btn.GetComponent<Button>().interactable = true;
+            choise_game_2 = true;
+            game_start();
         }else if (game_mng.time_1 != -1 && game_mng.time_2 != -1 && game_mng.time_3 == -1)
         {
             game_mng.time_3 = 0;
             game_3_btn.GetComponent<Button>().interactable = true;
+            choise_game_3 = true;
+            game_start();
         }else if (game_mng.time_1 != -1 && game_mng.time_2 != -1 && game_mng.time_3 != -1)
         {
             game_1_btn.GetComponent<Button>().interactable = true;
@@ -243,6 +250,7 @@ public class DateManager : MonoBehaviour
         }
         game_mng.Save();
         list_load();
+        SceneManager.LoadScene(0);
     }
     public void list_load()
     {
