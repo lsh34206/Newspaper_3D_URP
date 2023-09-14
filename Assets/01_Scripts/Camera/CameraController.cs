@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations;
 
 public class CameraController : MonoBehaviour
 {
@@ -15,7 +12,13 @@ public class CameraController : MonoBehaviour
         Bookshelf
     }
 
-    private CameraPosition _state = CameraPosition.Couch;
+    enum CameraState
+    {
+        Moving,
+        Stay
+    }
+
+    private CameraPosition _position = CameraPosition.Couch;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -23,7 +26,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        switch (_state)
+        switch (_position)
         {
             case CameraPosition.Couch:
                 RotateCamera();
