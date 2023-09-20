@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,7 +7,7 @@ using UnityEngine.UI;
 
 public class DateManager : MonoBehaviour
 {
-    public Text time_text_1;
+    public TextMeshProUGUI time_text_1;
     private bool tab_pop_bool;
     public int time;
     private int sub_time;
@@ -26,7 +27,7 @@ public class DateManager : MonoBehaviour
     public bool choise_game_3=false;
     public int delete_game_num;
     public GameObject alert;
-    public Text alert_text;
+    public TextMeshProUGUI alert_text;
 
     public string comfirm_mode;
     IEnumerator time_coru()
