@@ -1692,7 +1692,7 @@ MonoBehaviour:
   choise_game_3: 0
   delete_game_num: 0
   alert: {fileID: 1963660511}
-  alert_text: {fileID: 1913438627}
+  alert_text: {fileID: 0}
   comfirm_mode: 
 --- !u!4 &668122054
 Transform:
@@ -2981,7 +2981,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 668122053}
         m_TargetAssemblyTypeName: DateManager, Assembly-CSharp
-        m_MethodName: new_game
+        m_MethodName: game_start
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

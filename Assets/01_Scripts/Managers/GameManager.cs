@@ -28,10 +28,7 @@ public class GameManager : MonoBehaviour
         Load();
     }
 
-    public void exit()
-    {
-        Application.Quit();
-    }
+
 
     public void click_sound()
     {
