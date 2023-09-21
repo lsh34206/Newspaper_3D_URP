@@ -8,7 +8,6 @@ public class data
     public int time_1;
     public int time_2;
     public int time_3;
-    
 }
 
 public class GameManager : MonoBehaviour

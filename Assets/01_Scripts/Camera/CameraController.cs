@@ -35,6 +35,7 @@ public class CameraController : MonoBehaviour
             case CameraPosition.Table:
                 Cursor.lockState = CursorLockMode.Confined;
                 break;
+
             case CameraPosition.Bookshelf:
                 Cursor.lockState = CursorLockMode.Confined;
                 break;

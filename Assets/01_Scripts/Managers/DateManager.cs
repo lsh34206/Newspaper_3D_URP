@@ -1,6 +1,5 @@
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -33,40 +32,32 @@ public class DateManager : MonoBehaviour
 
     private void LoadedsceneEvent(Scene scene, LoadSceneMode mode)
     {
-     list_load();
+        list_load();
     }
     IEnumerator time_coru()
     {
         if (game_mng.now_game == 1)
         {
             if (game_mng.time_1 >= 0)
-            {
                    game_mng.time_1++;
-            }
 
             if (time_text_1 != null)
-            {
-                
+                time_text_1.text = ((game_mng.time_1 / 14400) + 1) + "일차\n" + (game_mng.time_1 / 600%24) + ":" + (game_mng.time_1 / 60%60);
             
-
-            time_text_1.text = ((game_mng.time_1 / 14400) + 1) + "일차\n" + (game_mng.time_1 / 600%24) + ":" + (game_mng.time_1 / 60%60);
-        }else if (game_mng.now_game == 2)
-        {
-            if (game_mng.time_2 >= 0)
+            else if (game_mng.now_game == 2)
             {
-                game_mng.time_2++;
-            }
+                if (game_mng.time_2 >= 0)
+                {
+                    game_mng.time_2++;
+                }
+                time_text_1.text = ((game_mng.time_2 / 14400) + 1) + "일차\n" + (game_mng.time_2 / 600%24) + ":" + (game_mng.time_2 / 60%60);
 
-
-            time_text_1.text = ((game_mng.time_2 / 14400) + 1) + "일차\n" + (game_mng.time_2 / 600%24) + ":" + (game_mng.time_2 / 60%60);
-
-        }else if (game_mng.now_game == 3)
+            }else if (game_mng.now_game == 3)
             {
                 if (game_mng.time_3 >= 0)
                 {
                     game_mng.time_3++;
                 }
-
 
                 time_text_1.text = ((game_mng.time_3 / 14400) + 1) + "일차\n" + (game_mng.time_3 / 600 % 24) + ":" +
                                    (game_mng.time_3 / 60 % 60);
@@ -76,7 +67,7 @@ public class DateManager : MonoBehaviour
         yield return new WaitForSeconds(1f/6f);
         StartCoroutine("time_coru", 1f/6f);
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         tab_pop_bool = false;
@@ -185,72 +176,47 @@ public class DateManager : MonoBehaviour
         
         if (game_mng.time_1 != -1 && game_mng.time_2 != -1  && game_mng.time_3 != -1 )
         {
-               game_mng.time_1 = 0;
-                                            game_mng.now_game = 1;
+            game_mng.time_1 = 0;
+            game_mng.now_game = 1;
         }
         else
         {
-
-
-
-
-
             if (game_mng.time_1 == -1 && game_mng.time_2 == -1 && game_mng.time_3 == -1 ||
                 game_mng.time_1 == -1 && game_mng.time_2 != -1 && game_mng.time_3 != -1 ||
                 game_mng.time_1 == -1 && game_mng.time_2 != -1 && game_mng.time_3 == -1 )
             {
                
-            }else if(game_mng.time_1 != -1 && game_mng.time_2 == -1 && game_mng.time_3 != -1 ||
+            }
+            else if(game_mng.time_1 != -1 && game_mng.time_2 == -1 && game_mng.time_3 != -1 ||
                      game_mng.time_1 != -1 && game_mng.time_2 != -1 && game_mng.time_3 == -1 ||
                      game_mng.time_1 != -1 && game_mng.time_2 == -1 && game_mng.time_3 == -1 )
-            
             {
                 game_mng.time_2 = 0;
                 game_mng.now_game = 2;
               
-            }else if(game_mng.time_1 != -1 && game_mng.time_2 != -1 && game_mng.time_3 == -1 )
-            
+            }
+            else if(game_mng.time_1 != -1 && game_mng.time_2 != -1 && game_mng.time_3 == -1 )
             {
                 game_mng.time_3 = 0;
                 game_mng.now_game = 3;
-              
             }
-            
-            
-       
-            
-             
         }
 
-
-
-              is_play = true;
-            SceneManager.LoadScene(0);
+        is_play = true;
+        SceneManager.LoadScene(0);
     }
     
     
     public void delete_mode()
     {
-
         comfirm_mode = "삭제";
-
-
-
     }
     
      
     public void visit_mode()
     {
-
         comfirm_mode = "입장";
-
-
-
     }
-    
-   
-
-   
 
 
     public void delete_func()
@@ -260,12 +226,12 @@ public class DateManager : MonoBehaviour
             game_mng.time_1 = -1;
         }
         
-      if(choise_game_2)
+        if(choise_game_2)
         {
             game_mng.time_2 = -1;
         }
       
-      if(choise_game_3)
+        if(choise_game_3)
         {
             game_mng.time_3 = -1;
         }
@@ -304,7 +270,6 @@ public class DateManager : MonoBehaviour
     }
 
 
-    // Update is called once per frame
     void Update()
     {
         if (is_play)
