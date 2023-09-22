@@ -9,8 +9,6 @@ public class DateManager : MonoBehaviour
     public TextMeshProUGUI time_text_1;
     private bool tab_pop_bool;
     public int time;
-    //private int sub_time;
-    //private bool is_play = true;
     private GameManager gameManager;
     public GameObject game_tab_pop;
     
@@ -78,11 +76,6 @@ public class DateManager : MonoBehaviour
         StartCoroutine("time_coru", 1f/6f);
     }
 
-    //public void game_exit()
-    //{
-    //    is_play = false;
-    //}
-
     public void game_1_choise()
     {
         choise_game_1 = !choise_game_1;
@@ -94,7 +87,6 @@ public class DateManager : MonoBehaviour
         {
               game_1_btn.GetComponent<Image>().color = new Color(255, 0, 0, 255);
         }
-      
     }
     
     public void game_2_choise()
@@ -108,7 +100,6 @@ public class DateManager : MonoBehaviour
         {
             game_2_btn.GetComponent<Image>().color = new Color(255, 0, 0, 255);
         }
-      
     }
     
     public void game_3_choise()
@@ -122,7 +113,6 @@ public class DateManager : MonoBehaviour
         {
             game_3_btn.GetComponent<Image>().color = new Color(255, 0, 0, 255);
         }
-      
     }
 
 
@@ -130,7 +120,6 @@ public class DateManager : MonoBehaviour
     {
         if (choise_game_1||choise_game_2||choise_game_3)
         {
-       
             alert_text.text = "정말 삭제하시겠습니까?";
             alert.SetActive(true);
         }
@@ -146,18 +135,15 @@ public class DateManager : MonoBehaviour
             if (choise_game_1)
             {
                 gameManager.now_game = 1;
-                //is_play = true;
                 SceneManager.LoadScene(0);
             }
             else if(choise_game_2)
             {
                 gameManager.now_game =2;
-                //is_play = true;
                 SceneManager.LoadScene(0);
             }else if(choise_game_3)
             {
                 gameManager.now_game =3;
-                //is_play = true;
                 SceneManager.LoadScene(0);
             }
             else
@@ -197,10 +183,8 @@ public class DateManager : MonoBehaviour
                 gameManager.now_game = 3;
             }
         }
-        //is_play = true;
         SceneManager.LoadScene(0);
     }
-    
     
     public void delete_mode()
     {
@@ -263,11 +247,16 @@ public class DateManager : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKey(KeyCode.Tab) && !tab_pop_bool)
+        if (Input.GetKeyDown(KeyCode.Escape) && !tab_pop_bool)
         {
             game_tab_pop.SetActive(true);
             list_load();
+            tab_pop_bool = true;
         }
-        else { game_tab_pop.SetActive(false);}
+        else if (Input.GetKeyDown(KeyCode.Escape) && tab_pop_bool)
+        {
+            game_tab_pop.SetActive(false);
+            tab_pop_bool = false;
+        }
     }
 }
