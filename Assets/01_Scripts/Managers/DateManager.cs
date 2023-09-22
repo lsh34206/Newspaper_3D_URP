@@ -9,21 +9,19 @@ public class DateManager : MonoBehaviour
     public TextMeshProUGUI time_text_1;
     private bool tab_pop_bool;
     public int time;
-    private int sub_time;
-    private bool is_play;
-    private GameManager game_mng;
+    //private int sub_time;
+    //private bool is_play = true;
+    private GameManager gameManager;
     public GameObject game_tab_pop;
     
     public GameObject game_1_btn;
     public GameObject game_2_btn;
-    public GameObject game_3_btn;
-    
-    
+    public GameObject game_3_btn;    
     public GameObject load_list_pop;
 
-    public bool choise_game_1=false;
-    public bool choise_game_2=false;
-    public bool choise_game_3=false;
+    public bool choise_game_1 = false;
+    public bool choise_game_2 = false;
+    public bool choise_game_3 = false;
     public int delete_game_num;
     public GameObject alert;
     public TextMeshProUGUI alert_text;
@@ -36,31 +34,31 @@ public class DateManager : MonoBehaviour
     }
     IEnumerator time_coru()
     {
-        if (game_mng.now_game == 1)
+        if (gameManager.now_game == 1)
         {
-            if (game_mng.time_1 >= 0)
-                   game_mng.time_1++;
+            if (gameManager.time_1 >= 0)
+                   gameManager.time_1++;
 
             if (time_text_1 != null)
-                time_text_1.text = ((game_mng.time_1 / 14400) + 1) + "일차\n" + (game_mng.time_1 / 600%24) + ":" + (game_mng.time_1 / 60%60);
+                time_text_1.text = ((gameManager.time_1 / 14400) + 1) + "일차\n" + (gameManager.time_1 / 600%24) + ":" + (gameManager.time_1 / 60%60);
             
-            else if (game_mng.now_game == 2)
+            else if (gameManager.now_game == 2)
             {
-                if (game_mng.time_2 >= 0)
+                if (gameManager.time_2 >= 0)
                 {
-                    game_mng.time_2++;
+                    gameManager.time_2++;
                 }
-                time_text_1.text = ((game_mng.time_2 / 14400) + 1) + "일차\n" + (game_mng.time_2 / 600%24) + ":" + (game_mng.time_2 / 60%60);
+                time_text_1.text = ((gameManager.time_2 / 14400) + 1) + "일차\n" + (gameManager.time_2 / 600%24) + ":" + (gameManager.time_2 / 60%60);
 
-            }else if (game_mng.now_game == 3)
+            }else if (gameManager.now_game == 3)
             {
-                if (game_mng.time_3 >= 0)
+                if (gameManager.time_3 >= 0)
                 {
-                    game_mng.time_3++;
+                    gameManager.time_3++;
                 }
 
-                time_text_1.text = ((game_mng.time_3 / 14400) + 1) + "일차\n" + (game_mng.time_3 / 600 % 24) + ":" +
-                                   (game_mng.time_3 / 60 % 60);
+                time_text_1.text = ((gameManager.time_3 / 14400) + 1) + "일차\n" + (gameManager.time_3 / 600 % 24) + ":" +
+                                   (gameManager.time_3 / 60 % 60);
             }
         }
       
@@ -73,17 +71,17 @@ public class DateManager : MonoBehaviour
         tab_pop_bool = false;
 
         comfirm_mode = "";
-        game_mng = GameObject.Find("GameManager").GetComponent<GameManager>();
-        game_mng.Load();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager.Load();
         list_load();
         SceneManager.sceneLoaded += LoadedsceneEvent;
         StartCoroutine("time_coru", 1f/6f);
     }
 
-    public void game_exit()
-    {
-        is_play = false;
-    }
+    //public void game_exit()
+    //{
+    //    is_play = false;
+    //}
 
     public void game_1_choise()
     {
@@ -145,22 +143,21 @@ public class DateManager : MonoBehaviour
             delete_func();
         }else if (comfirm_mode == "입장")
         {
-
             if (choise_game_1)
             {
-                game_mng.now_game = 1;
-                is_play = true;
+                gameManager.now_game = 1;
+                //is_play = true;
                 SceneManager.LoadScene(0);
             }
             else if(choise_game_2)
             {
-                game_mng.now_game =2;
-                is_play = true;
+                gameManager.now_game =2;
+                //is_play = true;
                 SceneManager.LoadScene(0);
             }else if(choise_game_3)
             {
-                game_mng.now_game =3;
-                is_play = true;
+                gameManager.now_game =3;
+                //is_play = true;
                 SceneManager.LoadScene(0);
             }
             else
@@ -171,38 +168,36 @@ public class DateManager : MonoBehaviour
     }
     
     
-    public void game_start()
+    public void GameStart()
     {
-        
-        if (game_mng.time_1 != -1 && game_mng.time_2 != -1  && game_mng.time_3 != -1 )
+        if (gameManager.time_1 != -1 && gameManager.time_2 != -1  && gameManager.time_3 != -1 )
         {
-            game_mng.time_1 = 0;
-            game_mng.now_game = 1;
+            gameManager.time_1 = 0;
+            gameManager.now_game = 1;
         }
         else
         {
-            if (game_mng.time_1 == -1 && game_mng.time_2 == -1 && game_mng.time_3 == -1 ||
-                game_mng.time_1 == -1 && game_mng.time_2 != -1 && game_mng.time_3 != -1 ||
-                game_mng.time_1 == -1 && game_mng.time_2 != -1 && game_mng.time_3 == -1 )
+            if (gameManager.time_1 == -1 && gameManager.time_2 == -1 && gameManager.time_3 == -1 ||
+                gameManager.time_1 == -1 && gameManager.time_2 != -1 && gameManager.time_3 != -1 ||
+                gameManager.time_1 == -1 && gameManager.time_2 != -1 && gameManager.time_3 == -1 )
             {
                
             }
-            else if(game_mng.time_1 != -1 && game_mng.time_2 == -1 && game_mng.time_3 != -1 ||
-                     game_mng.time_1 != -1 && game_mng.time_2 != -1 && game_mng.time_3 == -1 ||
-                     game_mng.time_1 != -1 && game_mng.time_2 == -1 && game_mng.time_3 == -1 )
+            else if(gameManager.time_1 != -1 && gameManager.time_2 == -1 && gameManager.time_3 != -1 ||
+                     gameManager.time_1 != -1 && gameManager.time_2 != -1 && gameManager.time_3 == -1 ||
+                     gameManager.time_1 != -1 && gameManager.time_2 == -1 && gameManager.time_3 == -1 )
             {
-                game_mng.time_2 = 0;
-                game_mng.now_game = 2;
+                gameManager.time_2 = 0;
+                gameManager.now_game = 2;
               
             }
-            else if(game_mng.time_1 != -1 && game_mng.time_2 != -1 && game_mng.time_3 == -1 )
+            else if(gameManager.time_1 != -1 && gameManager.time_2 != -1 && gameManager.time_3 == -1 )
             {
-                game_mng.time_3 = 0;
-                game_mng.now_game = 3;
+                gameManager.time_3 = 0;
+                gameManager.now_game = 3;
             }
         }
-
-        is_play = true;
+        //is_play = true;
         SceneManager.LoadScene(0);
     }
     
@@ -217,23 +212,21 @@ public class DateManager : MonoBehaviour
     {
         comfirm_mode = "입장";
     }
-
-
     public void delete_func()
     {
         if (choise_game_1)
         {
-            game_mng.time_1 = -1;
+            gameManager.time_1 = -1;
         }
         
         if(choise_game_2)
         {
-            game_mng.time_2 = -1;
+            gameManager.time_2 = -1;
         }
       
         if(choise_game_3)
         {
-            game_mng.time_3 = -1;
+            gameManager.time_3 = -1;
         }
         
         list_load();
@@ -241,7 +234,7 @@ public class DateManager : MonoBehaviour
    
     public void list_load()
     {
-        if (game_mng.time_1 == -1)
+        if (gameManager.time_1 == -1)
         {
             game_1_btn.GetComponent<Button>().interactable = false;
         }
@@ -250,7 +243,7 @@ public class DateManager : MonoBehaviour
             game_1_btn.GetComponent<Button>().interactable = true;
         }
         
-        if (game_mng.time_2 == -1)
+        if (gameManager.time_2 == -1)
         {
             game_2_btn.GetComponent<Button>().interactable = false;
         }
@@ -259,7 +252,7 @@ public class DateManager : MonoBehaviour
             game_2_btn.GetComponent<Button>().interactable = true;
         }
         
-        if (game_mng.time_3 == -1)
+        if (gameManager.time_3 == -1)
         {
             game_3_btn.GetComponent<Button>().interactable = false;
         }
@@ -268,26 +261,13 @@ public class DateManager : MonoBehaviour
             game_3_btn.GetComponent<Button>().interactable = true;
         }
     }
-
-
     void Update()
     {
-        if (is_play)
+        if (Input.GetKey(KeyCode.Tab) && !tab_pop_bool)
         {
-            if (Input.GetKey(KeyCode.Tab))
-            {
-                tab_pop_bool = !tab_pop_bool;
-                if (tab_pop_bool)
-                {
-                      game_tab_pop.SetActive(true);
-                      list_load();
-                }
-                else
-                {
-                    game_tab_pop.SetActive(false);
-                }
-              
-            }
+            game_tab_pop.SetActive(true);
+            list_load();
         }
+        else { game_tab_pop.SetActive(false);}
     }
 }

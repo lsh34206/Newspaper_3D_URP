@@ -27,8 +27,6 @@ public class GameManager : MonoBehaviour
         Load();
     }
 
-
-
     public void click_sound()
     {
         GameObject.Find("GameManager").GetComponent<AudioSource>().Play();
