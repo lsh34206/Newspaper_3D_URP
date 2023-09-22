@@ -8,7 +8,6 @@ public class data
     public int time_1;
     public int time_2;
     public int time_3;
-    
 }
 
 public class GameManager : MonoBehaviour
@@ -27,8 +26,6 @@ public class GameManager : MonoBehaviour
     {
         Load();
     }
-
-
 
     public void click_sound()
     {
@@ -83,14 +80,9 @@ public class GameManager : MonoBehaviour
     }
     public void Save()
     {
-    
-      
             datavar.time_1 = time_1;
-    
             datavar.time_2 = time_2;
-    
             datavar.time_3 = time_3;
-        
     
         string json = JsonUtility.ToJson(datavar);
         Debug.Log(json);
