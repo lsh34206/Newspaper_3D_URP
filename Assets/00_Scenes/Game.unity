@@ -2750,8 +2750,9 @@ GameObject:
   - component: {fileID: 1037095040}
   - component: {fileID: 1037095039}
   - component: {fileID: 1037095038}
+  - component: {fileID: 1037095041}
   m_Layer: 0
-  m_Name: save
+  m_Name: saveload
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2772,6 +2773,7 @@ MonoBehaviour:
   time_1: 0
   time_2: 0
   time_3: 0
+  datamanager: {fileID: 0}
   now_game: 0
   game_tab_img: {fileID: 0}
   game_pop: {fileID: 0}
@@ -2787,6 +2789,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7060adf0aebc64c81bc493f4db5e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time_1: 0
+  time_2: 0
+  time_3: 0
   time_text_1: {fileID: 0}
   time: 0
   game_tab_pop: {fileID: 799560}
@@ -2801,6 +2806,7 @@ MonoBehaviour:
   alert: {fileID: 0}
   alert_text: {fileID: 0}
   comfirm_mode: 
+  now_game: 0
 --- !u!4 &1037095040
 Transform:
   m_ObjectHideFlags: 0
@@ -2816,6 +2822,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1037095041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037095037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87498be3688d75c44a63ed8957eb9106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time_1: 0
+  time_2: 0
+  time_3: 0
+  now_game: 0
 --- !u!1 &1044729302
 GameObject:
   m_ObjectHideFlags: 0
@@ -3569,6 +3591,7 @@ MonoBehaviour:
   time_1: 0
   time_2: 0
   time_3: 0
+  datamanager: {fileID: 0}
   now_game: 0
   game_tab_img: {fileID: 0}
   game_pop: {fileID: 0}
@@ -3599,6 +3622,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7060adf0aebc64c81bc493f4db5e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time_1: 0
+  time_2: 0
+  time_3: 0
   time_text_1: {fileID: 0}
   time: 0
   game_tab_pop: {fileID: 1044729302}
@@ -3613,6 +3639,7 @@ MonoBehaviour:
   alert: {fileID: 1541913697}
   alert_text: {fileID: 0}
   comfirm_mode: 
+  now_game: 0
 --- !u!1 &1417647023
 GameObject:
   m_ObjectHideFlags: 0
