@@ -3,10 +3,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System.IO;
-
-
-
 
 public class GameActive : MonoBehaviour
 {
@@ -263,6 +259,4 @@ public class GameActive : MonoBehaviour
             tab_pop_bool = false;
         }
     }
-    // Start is called before the first frame update
-
 }

@@ -1,4 +1,3 @@
-using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +8,7 @@ public class GameManager : MonoBehaviour
     public int time_2;
     public int time_3;
 
-    public DateManager datamanager;
+    public DateManager dataManager;
 
     public int now_game;
     public Sprite game_tab_img;
@@ -17,8 +16,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        datamanager = GameObject.Find("Canvas").GetComponent<DateManager>();
-      
+        dataManager = GameObject.Find("Canvas").GetComponent<DateManager>();
     }
 
     public void click_sound()
@@ -31,10 +29,12 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
     public void go_lobby()
     {
         SceneManager.LoadScene(2);
     }
+
     public void go_game()
     {
         SceneManager.LoadScene(0);

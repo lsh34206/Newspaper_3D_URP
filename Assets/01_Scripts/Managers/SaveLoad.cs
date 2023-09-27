@@ -1,8 +1,4 @@
-using System.Collections;
-using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using System.IO;
 
 
@@ -20,17 +16,12 @@ public class SaveLoad : MonoBehaviour
     public int time_3;
     public int now_game;
     private data datavar = new data();
-    // Start is called before the first frame update
+
     void Start()
     {
         Load();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void Save()
     {
         datavar.time_1 = time_1;

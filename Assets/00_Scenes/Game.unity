@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &799561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2597,10 +2597,10 @@ RectTransform:
   - {fileID: 2018790772}
   m_Father: {fileID: 1380262813}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 475, y: -101.5}
+  m_SizeDelta: {x: 950, y: 65.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &786087654
 MonoBehaviour:
@@ -2707,7 +2707,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &891515000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3118,6 +3118,7 @@ MonoBehaviour:
   time_1: 0
   time_2: 0
   time_3: 0
+  dataManager: {fileID: 0}
   now_game: 0
   game_tab_img: {fileID: 0}
   game_pop: {fileID: 0}
@@ -3133,6 +3134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7060adf0aebc64c81bc493f4db5e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time_1: 0
+  time_2: 0
+  time_3: 0
   time_text_1: {fileID: 0}
   time: 0
   game_tab_pop: {fileID: 799560}
@@ -3147,6 +3151,7 @@ MonoBehaviour:
   alert: {fileID: 0}
   alert_text: {fileID: 0}
   comfirm_mode: 
+  now_game: 0
 --- !u!4 &1037095040
 Transform:
   m_ObjectHideFlags: 0
@@ -4021,6 +4026,7 @@ MonoBehaviour:
   time_1: 0
   time_2: 0
   time_3: 0
+  dataManager: {fileID: 0}
   now_game: 0
   game_tab_img: {fileID: 0}
   game_pop: {fileID: 0}
@@ -4051,6 +4057,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7060adf0aebc64c81bc493f4db5e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time_1: 0
+  time_2: 0
+  time_3: 0
   time_text_1: {fileID: 0}
   time: 0
   game_tab_pop: {fileID: 1044729302}
@@ -4065,6 +4074,7 @@ MonoBehaviour:
   alert: {fileID: 1541913697}
   alert_text: {fileID: 0}
   comfirm_mode: 
+  now_game: 0
 --- !u!1 &1380262812
 GameObject:
   m_ObjectHideFlags: 0
