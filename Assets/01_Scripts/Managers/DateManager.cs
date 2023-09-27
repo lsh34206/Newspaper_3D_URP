@@ -267,39 +267,6 @@ public class DateManager : MonoBehaviour
             tab_pop_bool = false;
         }
     }
-    public void Load()
-    {
-        string path = Application.persistentDataPath + "/data.Json";
-        if(File.Exists(path))
-        {
-            string json = File.ReadAllText(path);
-            data datavar = JsonUtility.FromJson<data>(json);
-
-            if (now_game == 1)
-            {
-                time_1 = datavar.time_1;
-            }
-            
-            if (now_game ==2)
-            {
-                time_2 = datavar.time_2;
-            }
-     
-            if (now_game == 3)
-            {
-                time_3 = datavar.time_3;
-            }
-            time_1 = datavar.time_1;
-            time_2 = datavar.time_2; 
-            time_3 = datavar.time_3;
-        }
-        else
-        {
-            time_1 = -1;
-            time_2 = -1;
-            time_3 = -1;
-            return;
-        }
-    }
+    
 
 }
