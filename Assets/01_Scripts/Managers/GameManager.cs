@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        datamanager = GameObject.Find("Canvas").GetComponent<DateManager>();
+        datamanager = GameObject.Find("GameManager").GetComponent<DateManager>();
       
     }
 
