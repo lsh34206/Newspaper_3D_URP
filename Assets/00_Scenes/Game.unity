@@ -14,10 +14,15 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
+<<<<<<< HEAD
   m_Fog: 0
   m_FogColor: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
+=======
+  m_Fog: 1
+  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
+>>>>>>> 74989730eefb3f88bfbf81754b32b3ecad682632
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.02
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -38,7 +43,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.017858988, g: 0.013579056, b: 0.009505305, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1383,13 +1388,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: -0.24480884, y: -0.19376345, z: -0.88718706, w: -0.33974043}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: -10.222, y: 35.112, z: -225.15}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1422,10 +1427,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 410087039}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: d8a8eaefae19b874ba67945df88c6fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   secondPerRealTimeSecond: 144000
+=======
+  m_Script: {fileID: 11500000, guid: 35d4c0066e84d8d4dbdaf94e1ba9ce43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondPerRealTimeSecond: 0
+>>>>>>> 74989730eefb3f88bfbf81754b32b3ecad682632
   nightFogDensity: 0
   fogDensityCalc: 0
 --- !u!1 &434796338
@@ -2766,8 +2778,9 @@ GameObject:
   - component: {fileID: 1037095040}
   - component: {fileID: 1037095039}
   - component: {fileID: 1037095038}
+  - component: {fileID: 1037095041}
   m_Layer: 0
-  m_Name: save
+  m_Name: SaveLoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2788,6 +2801,7 @@ MonoBehaviour:
   time_1: 0
   time_2: 0
   time_3: 0
+  datamanager: {fileID: 0}
   now_game: 0
   game_tab_img: {fileID: 0}
   game_pop: {fileID: 0}
@@ -2803,6 +2817,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7060adf0aebc64c81bc493f4db5e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time_1: 0
+  time_2: 0
+  time_3: 0
+  secondPerRealTimeSecond: 0
+  nightFogDensity: 0
+  fogDensityCalc: 0
   time_text_1: {fileID: 0}
   time: 0
   game_tab_pop: {fileID: 799560}
@@ -2817,6 +2837,7 @@ MonoBehaviour:
   alert: {fileID: 0}
   alert_text: {fileID: 0}
   comfirm_mode: 
+  now_game: 0
 --- !u!4 &1037095040
 Transform:
   m_ObjectHideFlags: 0
@@ -2832,6 +2853,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1037095041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037095037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87498be3688d75c44a63ed8957eb9106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time_1: 0
+  time_2: 0
+  time_3: 0
+  now_game: 0
 --- !u!1 &1044729302
 GameObject:
   m_ObjectHideFlags: 0
@@ -3585,6 +3622,7 @@ MonoBehaviour:
   time_1: 0
   time_2: 0
   time_3: 0
+  datamanager: {fileID: 0}
   now_game: 0
   game_tab_img: {fileID: 0}
   game_pop: {fileID: 0}
@@ -3596,13 +3634,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371019140}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.6491039, w: -0.76069987}
   m_LocalPosition: {x: 1010.3559, y: 481.11835, z: -7.0844088}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 4760.948}
 --- !u!114 &1371019143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3615,6 +3653,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7060adf0aebc64c81bc493f4db5e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time_1: 0
+  time_2: 0
+  time_3: 0
+  secondPerRealTimeSecond: 0
+  nightFogDensity: 0
+  fogDensityCalc: 0
   time_text_1: {fileID: 0}
   time: 0
   game_tab_pop: {fileID: 1044729302}
@@ -3629,6 +3673,7 @@ MonoBehaviour:
   alert: {fileID: 1541913697}
   alert_text: {fileID: 0}
   comfirm_mode: 
+  now_game: 0
 --- !u!1 &1417647023
 GameObject:
   m_ObjectHideFlags: 0
@@ -3917,7 +3962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1541913698
 RectTransform:
   m_ObjectHideFlags: 0

@@ -7,22 +7,10 @@ using System.IO;
 
 
 
-public class DateManager : MonoBehaviour
+
+public class GameActive : MonoBehaviour
 {
-    public int time_1;
-    public int time_2;
-    public int time_3;
-    
-    [SerializeField] private float secondPerRealTimeSecond; // 게임 세계에서의 100초 = 현실 세계의 1초
-
-    private bool isNight = false;
-
-    [SerializeField] private float nightFogDensity; // 밤 상태의 Fog 밀도
-    private float dayFogDensity; // 낮 상태의 Fog 밀도
-    [SerializeField] private float fogDensityCalc; // 증감량 비율
-    private float currentFogDensity; 
-  
-    public TextMeshProUGUI time_text_1;
+     public TextMeshProUGUI time_text_1;
     private bool tab_pop_bool;
     public int time;
     private SaveLoad saveload;
@@ -54,7 +42,7 @@ public class DateManager : MonoBehaviour
                    saveload.time_1++;
 
             if (time_text_1 != null)
-                time_text_1.text = ((saveload.time_1 / 1440) + 1) + "일차\n" + (saveload.time_1 / 60) + ":" + (saveload.time_1 / 6%60);
+                time_text_1.text = ((saveload.time_1 / 14400) + 1) + "일차\n" + (saveload.time_1 / 600%24) + ":" + (saveload.time_1 / 60%60);
             
             else if (saveload.now_game == 2)
             {
@@ -62,7 +50,7 @@ public class DateManager : MonoBehaviour
                 {
                     saveload.time_2++;
                 }
-                time_text_1.text = ((saveload.time_2 / 1440) + 1) + "일차\n" + (saveload.time_2 / 60) + ":" + (saveload.time_2 / 6%60);
+                time_text_1.text = ((saveload.time_2 / 14400) + 1) + "일차\n" + (saveload.time_2 / 600%24) + ":" + (saveload.time_2 / 60%60);
 
             }else if (saveload.now_game == 3)
             {
@@ -71,25 +59,25 @@ public class DateManager : MonoBehaviour
                     saveload.time_3++;
                 }
 
-                time_text_1.text = ((saveload.time_3 / 1440) + 1) + "일차\n" + (saveload.time_3 / 60 % 24) + ":" +
-                                   (saveload.time_3 / 6 % 60);
+                time_text_1.text = ((saveload.time_3 / 14400) + 1) + "일차\n" + (saveload.time_3 / 600 % 24) + ":" +
+                                   (saveload.time_3 / 60 % 60);
             }
         }
       
-        yield return new WaitForSeconds(1f/60f);
-        StartCoroutine("time_coru", 1f/60f);
+        yield return new WaitForSeconds(1f/6f);
+        StartCoroutine("time_coru", 1f/6f);
     }
 
     void Start()
     {
         tab_pop_bool = false;
-        dayFogDensity = RenderSettings.fogDensity;
+
         comfirm_mode = "";
-        saveload = GameObject.Find("SaveLoad").GetComponent<SaveLoad>();
+        saveload = GameObject.Find("saveload").GetComponent<SaveLoad>();
         saveload.Load();
         list_load();
         SceneManager.sceneLoaded += LoadedsceneEvent;
-        StartCoroutine("time_coru", 1f/60f);
+        StartCoroutine("time_coru", 1f/6f);
     }
 
     public void game_1_choise()
@@ -274,13 +262,7 @@ public class DateManager : MonoBehaviour
             game_tab_pop.SetActive(false);
             tab_pop_bool = false;
         }
-        
-        
     }
-    
-      
+    // Start is called before the first frame update
 
-   
-    }
-
-
+}
