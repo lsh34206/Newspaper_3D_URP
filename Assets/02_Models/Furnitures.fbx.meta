@@ -1,29 +1,9 @@
 fileFormatVersion: 2
-guid: d65f7f198f972e6428bec090a9f5dc76
+guid: 3c6ef20ccf4d1054b80d17b01fcfe855
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Glass
-    second: {fileID: 2100000, guid: 6267fd6eed91f65488d1a90d7597d1f7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: LetterPaper
-    second: {fileID: 2100000, guid: aaef92c3ba243584fa8d6a1e2c56e1f4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Red
-    second: {fileID: 2100000, guid: 6a01081aa9a49164aaefd0c67d80a66c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: WhiteWood
-    second: {fileID: 2100000, guid: a27978fb821ec7148b6f2137dcec45fc, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
