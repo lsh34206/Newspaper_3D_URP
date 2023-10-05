@@ -16,11 +16,15 @@ RenderSettings:
   serializedVersion: 9
 <<<<<<< HEAD
   m_Fog: 0
+<<<<<<< HEAD
   m_FogColor: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
 =======
   m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
 >>>>>>> 74989730eefb3f88bfbf81754b32b3ecad682632
+=======
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+>>>>>>> parent of 520018c (edit20)
   m_FogMode: 3
   m_FogDensity: 0.02
   m_LinearFogStart: 0
@@ -1310,9 +1314,8 @@ GameObject:
   - component: {fileID: 410087041}
   - component: {fileID: 410087040}
   - component: {fileID: 410087042}
-  - component: {fileID: 410087043}
   m_Layer: 0
-  m_Name: sun
+  m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1418,6 +1421,7 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+<<<<<<< HEAD
 --- !u!114 &410087043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1440,6 +1444,8 @@ MonoBehaviour:
 >>>>>>> 74989730eefb3f88bfbf81754b32b3ecad682632
   nightFogDensity: 0
   fogDensityCalc: 0
+=======
+>>>>>>> parent of 520018c (edit20)
 --- !u!1 &434796338
 GameObject:
   m_ObjectHideFlags: 0
