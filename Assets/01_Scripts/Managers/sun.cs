@@ -15,54 +15,35 @@ public class sun : MonoBehaviour
 
     void Start()
     {
+        secondPerRealTimeSecond = 14.4f;
         dayFogDensity = RenderSettings.fogDensity;
     }
 
     void Update()
     {
+        // 계속 태양을 X 축 중심으로 회전. 현실시간 1초에  0.1f * secondPerRealTimeSecond 각도만큼 회전
+        transform.Rotate(Vector3.right, 0.1f * secondPerRealTimeSecond * Time.deltaTime);
 
-        if ((GameObject.Find("GameManager").GetComponent<DateManager>().time_1 >= 920 &&
-             GameObject.Find("GameManager").GetComponent<DateManager>().time_1 >= 1140))
-        {
+        if (transform.eulerAngles.x >= 170) // x 축 회전값 170 이상이면 밤이라고 하겠음
             isNight = true;
-        }
-        else if((GameObject.Find("GameManager").GetComponent<DateManager>().time_1 >= 0 &&
-                 GameObject.Find("GameManager").GetComponent<DateManager>().time_1 >= 200))
-        {
+        else if (transform.eulerAngles.x <= 10)  // x 축 회전값 10 이하면 낮이라고 하겠음
             isNight = false;
-        }
-        
-        if ((GameObject.Find("GameManager").GetComponent<DateManager>().time_2 >= 920 &&
-             GameObject.Find("GameManager").GetComponent<DateManager>().time_2 >= 1140))
-        {
-            isNight = true;
-        }
-        else if((GameObject.Find("GameManager").GetComponent<DateManager>().time_2 >= 0 &&
-                 GameObject.Find("GameManager").GetComponent<DateManager>().time_2 >= 200))
-        {
-            isNight = false;
-        }
-        
-        if ((GameObject.Find("GameManager").GetComponent<DateManager>().time_3 >= 920 &&
-             GameObject.Find("GameManager").GetComponent<DateManager>().time_3 >= 1140))
-        {
-            isNight = true;
-        }
-        else if((GameObject.Find("GameManager").GetComponent<DateManager>().time_3 >= 0 &&
-                 GameObject.Find("GameManager").GetComponent<DateManager>().time_3 >= 200))
-        {
-            isNight = false;
-        }
-        
-      
 
-        if (!isNight)
+        if (isNight)
         {
-            gameObject.transform.rotation = new Quaternion(5.5f,36f,-291.9f,0);
+            if (currentFogDensity <= nightFogDensity)
+            {
+                currentFogDensity += 0.1f * fogDensityCalc * Time.deltaTime;
+                RenderSettings.fogDensity = currentFogDensity;
+            }
         }
         else
         {
-            gameObject.transform.rotation = new Quaternion(-11.2f, 34.5f, -121.4f,0);
+            if (currentFogDensity >= dayFogDensity)
+            {
+                currentFogDensity -= 0.1f * fogDensityCalc * Time.deltaTime;
+                RenderSettings.fogDensity = currentFogDensity;
+            }
         }
     }
 }
