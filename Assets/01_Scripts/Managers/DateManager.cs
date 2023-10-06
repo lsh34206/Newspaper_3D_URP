@@ -92,45 +92,6 @@ public class DateManager : MonoBehaviour
         StartCoroutine("time_coru", 1f/60f);
     }
 
-    public void game_1_choise()
-    {
-        choise_game_1 = !choise_game_1;
-        if (choise_game_1)
-        {
-            game_1_btn.GetComponent<Image>().color = new Color(0, 0, 0, 255);
-        }
-        else
-        {
-              game_1_btn.GetComponent<Image>().color = new Color(255, 0, 0, 255);
-        }
-    }
-    
-    public void game_2_choise()
-    {
-        choise_game_2 = !choise_game_2;
-        if (choise_game_2)
-        {
-            game_2_btn.GetComponent<Image>().color = new Color(0, 0, 0, 255);
-        }
-        else
-        {
-            game_2_btn.GetComponent<Image>().color = new Color(255, 0, 0, 255);
-        }
-    }
-    
-    public void game_3_choise()
-    {
-        choise_game_3 = !choise_game_3;
-        if (choise_game_3)
-        {
-            game_3_btn.GetComponent<Image>().color = new Color(0, 0, 0, 255);
-        }
-        else
-        {
-            game_3_btn.GetComponent<Image>().color = new Color(255, 0, 0, 255);
-        }
-    }
-
 
     public void delete_btn_click()
     {

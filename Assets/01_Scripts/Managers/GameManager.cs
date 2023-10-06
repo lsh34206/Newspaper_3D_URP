@@ -5,9 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int time_1;
-    public int time_2;
-    public int time_3;
+  
 
     public DateManager datamanager;
 
