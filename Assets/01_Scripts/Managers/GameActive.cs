@@ -73,7 +73,7 @@ public class GameActive : MonoBehaviour
         tab_pop_bool = false;
 
         comfirm_mode = "";
-        saveload = GameObject.Find("saveload").GetComponent<SaveLoad>();
+        saveload = GameObject.Find("SaveLoad").GetComponent<SaveLoad>();
         saveload.Load();
         list_load();
         SceneManager.sceneLoaded += LoadedsceneEvent;

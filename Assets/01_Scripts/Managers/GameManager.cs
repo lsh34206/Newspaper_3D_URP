@@ -27,15 +27,12 @@ public class GameManager : MonoBehaviour
 
     public void go_main()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
-    public void go_lobby()
-    {
-        SceneManager.LoadScene(2);
-    }
+
     public void go_game()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
 }
